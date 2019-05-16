@@ -25,4 +25,5 @@ socket.on('nsList', nsData => {
       console.log(nsEndpoint);
     });
   });
+  joinNs('/wiki');
 });
