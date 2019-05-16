@@ -32,7 +32,7 @@ socket.on('messageFromServer', dataFromServer => {
   socket.emit('dataToServer', { data: 'Data from the Client!' });
 });
 
-document.querySelector('#message-form').addEventListener('submit', event => {
+document.querySelector('.message-form').addEventListener('submit', event => {
   event.preventDefault();
   const newMessage = document.querySelector('#user-message').value;
   socket.emit('newMessageToServer', { text: newMessage });
