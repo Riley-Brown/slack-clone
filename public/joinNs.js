@@ -1,5 +1,5 @@
 function joinNs(endpoint) {
-  const nsSocket = io('http://localhost:9000/wiki');
+  const nsSocket = io(`http://localhost:9000${endpoint}`);
   nsSocket.on('nsRoomLoad', nsRooms => {
     console.log(nsRooms);
     let roomList = document.querySelector('.room-list');
@@ -28,10 +28,10 @@ function joinNs(endpoint) {
     console.log(msg);
     document.querySelector('#messages').innerHTML += `<li>${msg.text}</li>`;
   });
-}
 
-document.querySelector('.message-form').addEventListener('submit', event => {
-  event.preventDefault();
-  const newMessage = document.querySelector('#user-message').value;
-  socket.emit('newMessageToServer', { text: newMessage });
-});
+  document.querySelector('.message-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const newMessage = document.querySelector('#user-message').value;
+    socket.emit('newMessageToServer', { text: newMessage });
+  });
+}
