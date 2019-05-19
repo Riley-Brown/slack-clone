@@ -31,5 +31,8 @@ namespaces.forEach(namespace => {
     // socket has connected to a namespace
     // send ns info back
     nsSocket.emit('nsRoomLoad', namespaces[0].rooms);
+    nsSocket.on('joinRoom', roomToJoin => {
+      nsSocket.join(roomToJoin);
+    });
   });
 });
