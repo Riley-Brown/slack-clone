@@ -1,4 +1,5 @@
 const socket = io('http://localhost:9000'); // the / namespace/endpoint
+let nsSocket = '';
 
 console.log(socket.io);
 
